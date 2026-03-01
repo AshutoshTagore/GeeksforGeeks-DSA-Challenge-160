@@ -6,7 +6,6 @@ using namespace std;
 
 class LRUCache {
     public:
-    
     class Node{
         public:
         int key, val;
@@ -75,3 +74,35 @@ class LRUCache {
           m[key]=newNode;
       }
   };
+
+
+
+  int main() {
+    cout << "Testing LRU Cache with Capacity 2..." << endl;
+
+    LRUCache cache(2);
+
+    cout << "PUT(1, 2)" << endl;
+    cache.put(1, 2);
+    
+    cout << "PUT(2, 3)" << endl;
+    cache.put(2, 3);
+    
+    cout << "PUT(1, 5) -> Updates key 1" << endl;
+    cache.put(1, 5);
+    
+    cout << "PUT(4, 5) -> Cache full, evicts key 2" << endl;
+    cache.put(4, 5);
+    
+    cout << "PUT(6, 7) -> Cache full, evicts key 1" << endl;
+    cache.put(6, 7);
+    
+    cout << "GET(4)    -> Returned: " << cache.get(4) << " (Expected: 5)" << endl;
+    
+    cout << "PUT(1, 2) -> Cache full, evicts key 6" << endl;
+    cache.put(1, 2);
+    
+    cout << "GET(3)    -> Returned: " << cache.get(3) << " (Expected: -1)" << endl;
+
+    return 0;
+}

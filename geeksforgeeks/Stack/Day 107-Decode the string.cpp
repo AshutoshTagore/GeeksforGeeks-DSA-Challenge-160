@@ -11,7 +11,7 @@ class Solution {
         stack<string> strStack;
         
         int currNum = 0;
-        string currStr = "";
+        string currStr = "";    
         
         for (char c : s) {
             if (isdigit(c)) {
